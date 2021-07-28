@@ -19,7 +19,7 @@ class CreateWorkersTable extends Migration
             $table->string('name', 50);
             $table->string('surname', 50);
             $table->string('phone', 30);
-            $table->string('address', 100);
+            $table->string('email', 50);
             $table->timestamps();
         });
     }
