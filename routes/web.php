@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// rotte admin
+Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
+    Route::resource('company', 'FirmController');
+});
