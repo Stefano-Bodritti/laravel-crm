@@ -14,7 +14,7 @@ class FirmController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
