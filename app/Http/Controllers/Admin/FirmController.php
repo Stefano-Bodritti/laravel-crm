@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Firm;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class FirmController extends Controller
      */
     public function index()
     {
-        
+        $firm = Firm::all();
+
+        return view('admin.company.index', compact('firm'));
     }
 
     /**
