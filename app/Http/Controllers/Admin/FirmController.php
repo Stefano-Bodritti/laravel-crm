@@ -15,7 +15,7 @@ class FirmController extends Controller
      */
     public function index()
     {
-        $firm = Firm::all();
+        $firm = Firm::paginate(10);
 
         return view('admin.company.index', compact('firm'));
     }

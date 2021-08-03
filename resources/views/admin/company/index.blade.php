@@ -6,6 +6,9 @@
 
 @section('content')
   <div class="container company_index">
+    <div class="create">
+      <a href=""><button type="button" class="btn btn-primary">Crea nuova azienda</button></a>
+    </div>
     <h1>Lista delle aziende</h1>
     <div class="row title">
       <div class="col-2">Logo</div>
@@ -20,10 +23,11 @@
         <div class="col-2">{{$item->partita_iva}}</div>
         <div class="col-4 offset-2">
           <button type="button" class="btn btn-success">Visualizza</button>
-          <button type="button" class="btn btn-primary">Modifica</button>
+          <button type="button" class="btn btn-info">Modifica</button>
           <button type="button" class="btn btn-danger">Cancella</button>
         </div>
       </div>
     @endforeach
+    <div class="pagination">{{ $firm->links() }}</div>
   </div>
 @endsection

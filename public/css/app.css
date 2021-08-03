@@ -10043,13 +10043,20 @@ img {
   margin-bottom: 30px;
 }
 
+.company_index {
+  position: relative;
+}
 .company_index h1 {
   text-align: center;
   font-weight: bold;
   margin-bottom: 40px;
 }
+.company_index .create {
+  position: absolute;
+  right: 0;
+}
 .company_index .row {
-  border: 1px solid black;
+  border: 1px solid grey;
   padding: 10px 0;
 }
 .company_index .row [class^=col] {
@@ -10061,4 +10068,7 @@ img {
 }
 .company_index .row [class^=col] button {
   margin-right: 5px;
+}
+.company_index .pagination {
+  margin: 10px 0 0 -8px;
 }

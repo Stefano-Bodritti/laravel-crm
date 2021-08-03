@@ -1,14 +1,21 @@
 .company_index {
+  position: relative;
+  
   h1 {
     text-align: center;
     font-weight: bold;
     margin-bottom: 40px;
   }
 
-  .row {
-    border: 1px solid black;
-    padding: 10px 0;
+  .create {
+    position: absolute;
+    right: 0;
+  }
 
+  .row {
+    border: 1px solid grey;
+    padding: 10px 0;
+    
     [class^="col"] {
       display: flex;
       align-items: center;
@@ -20,5 +27,8 @@
         margin-right: 5px;
       }
     }
+  }
+  .pagination {
+    margin: 10px 0 0 -8px;
   }
 }
