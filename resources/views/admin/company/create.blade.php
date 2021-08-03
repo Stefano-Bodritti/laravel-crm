@@ -25,7 +25,7 @@
       </div>
       <div class="form-group mt-5">
         <label for="logo">Logo azienda</label>
-        <input type="file">
+        <input type="file" id="logo" name="logo">
       </div>
       <div class="form-group mt-5">
         <label for="partita_iva">Partita IVA</label>

@@ -5,10 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Firm;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FirmController extends Controller
 {
-    
+    protected $validation = [
+        'name' => 'required|string|max:50|unique:App\Firm,name',
+        'logo' => 'nullable|mimes:jpeg,png,jpg,gif,svg,bmp|max:2048',
+        'partita_iva' => 'required|numeric|digits:11|unique:App\Firm,partita_iva'
+    ];
 
     /**
      * Display a listing of the resource.
@@ -40,7 +45,22 @@ class FirmController extends Controller
      */
     public function store(Request $request)
     {
-        
+        // validazione dei dati inseriti
+        $validation = $this->validation;
+        $request->validate($validation);
+
+        // prendo tutti i dati da salvare
+        $data = $request->all();
+
+        // upload immagine
+        if (isset($data['logo'])) {
+            $data['logo'] = Storage::disk('public')->put('images', $data['logo']);
+        }
+
+        // creo variabile e salvo nel DB
+        $newFirm = Firm::create($data);
+
+        return redirect()->route('admin.company.index')->with('message', 'La nuova azienda è stata inserita correttamente');
     }
 
     /**
