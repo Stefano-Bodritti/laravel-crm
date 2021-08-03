@@ -7,7 +7,7 @@
 @section('content')
   <div class="container company_index">
     <div class="create">
-      <a href=""><button type="button" class="btn btn-primary">Crea nuova azienda</button></a>
+      <a href="{{route('admin.company.create')}}"><button type="button" class="btn btn-primary">Aggiungi nuova azienda</button></a>
     </div>
     <h1>Lista delle aziende</h1>
     <div class="row title">

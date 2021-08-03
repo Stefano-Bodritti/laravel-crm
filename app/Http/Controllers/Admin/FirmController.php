@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class FirmController extends Controller
 {
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +29,7 @@ class FirmController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.company.create');
     }
 
     /**
@@ -38,7 +40,7 @@ class FirmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
