@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Firm;
+use App\Worker;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -105,6 +106,15 @@ class FirmController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $firm = Firm::where('id', $id)->first();
+
+        // se l'azienda ha dei dipendenti associati, non cancellare e avvisa
+        if (count($firm->worker) > 0) {
+            return redirect()->back()->with('message', 'Non puoi eliminare un\'azienda se ha dei dipendenti associati');
+        }
+
+        // altrimenti, cancella
+        $firm->delete();
+        return redirect()->back()->with('message', 'L\'azienda è stata eliminata');
     }
 }
