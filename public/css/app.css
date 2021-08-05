@@ -10033,6 +10033,11 @@ img {
   box-shadow: none;
 }
 
+.back {
+  margin-top: 30px;
+  font-size: 22px;
+}
+
 .dashboard h2 {
   margin-bottom: 50px;
   text-align: center;

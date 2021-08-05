@@ -22,7 +22,7 @@
         <div class="col-2">{{$company->name}}</div>
         <div class="col-2">{{$company->partita_iva}}</div>
         <div class="col-4 offset-2">
-          <button type="button" class="btn btn-success">Visualizza</button>
+          <a href="{{route('admin.company.show', ['company' => $company->id])}}"><button type="button" class="btn btn-success">Visualizza</button></a>
           <button type="button" class="btn btn-info">Modifica</button>
 
           {{-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-times"></i> Elimina</button>

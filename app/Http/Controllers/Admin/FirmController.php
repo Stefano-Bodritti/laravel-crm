@@ -72,7 +72,9 @@ class FirmController extends Controller
      */
     public function show($id)
     {
-        //
+        $firm = Firm::where('id', $id)->first();
+
+        return view('admin.company.show', compact('firm'));
     }
 
     /**
