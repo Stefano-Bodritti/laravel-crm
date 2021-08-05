@@ -52,7 +52,9 @@
         </div>
       </div>
     @endforeach
+
     <div class="pagination">{{ $firm->links() }}</div>
+    <div class="back"><a href="{{route('admin.dashboard')}}">Torna indietro</a></div>
   </div>
 
   @if (session('message'))

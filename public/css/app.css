@@ -10082,3 +10082,20 @@ img {
   text-align: center;
   margin-bottom: 30px;
 }
+
+.company_show h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+.company_show .logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.company_show .logo img {
+  width: 30%;
+}
+.company_show li {
+  margin: 5px 0;
+}
