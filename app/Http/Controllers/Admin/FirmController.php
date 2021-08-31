@@ -85,7 +85,9 @@ class FirmController extends Controller
      */
     public function edit($id)
     {
-        //
+        $firm = Firm::where('id', $id)->first();
+
+        return view('admin.company.edit', compact('firm'));
     }
 
     /**
