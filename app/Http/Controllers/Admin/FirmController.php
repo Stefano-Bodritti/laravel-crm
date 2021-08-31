@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Firm;
 use App\Worker;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -97,9 +98,29 @@ class FirmController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Firm $company)
     {
-        //
+
+        // validazione dei dati inseriti
+        $validation2 = [
+            'name' => 'required|string|max:50', Rule::unique('firms')->ignore($company->id),
+            'logo' => 'nullable|mimes:jpeg,png,jpg,gif,svg,bmp|max:2048',
+            'partita_iva' => 'required|numeric|digits:11', Rule::unique('firms')->ignore($company->id)
+        ];
+        $request->validate($validation2);
+
+        // prendo tutti i dati da salvare
+        $data = $request->all();
+
+        // upload immagine
+        if (isset($data['logo'])) {
+            $data['logo'] = Storage::disk('public')->put('images', $data['logo']);
+        }
+
+        // update
+        $company->update($data);
+        
+        return redirect()->route('admin.company.index')->with('message', 'L\'azienda è stata modificata');
     }
 
     /**

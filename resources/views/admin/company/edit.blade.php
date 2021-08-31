@@ -17,7 +17,7 @@
     @endif
 
     <h1>Modifica i dati dell'azienda</h1>
-    <form action="{{route('admin.company.update', $firm->id)}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('admin.company.update', ['company' => $firm->id])}}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="form-group mt-5">
