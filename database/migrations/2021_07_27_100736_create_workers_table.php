@@ -18,8 +18,8 @@ class CreateWorkersTable extends Migration
             $table->foreignId('firm_id')->constrained()->onDelete('cascade');
             $table->string('name', 50);
             $table->string('surname', 50);
-            $table->string('phone', 30);
-            $table->string('email', 50);
+            $table->string('phone', 30)->unique();
+            $table->string('email', 50)->unique();
             $table->timestamps();
         });
     }

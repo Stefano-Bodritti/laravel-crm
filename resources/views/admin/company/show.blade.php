@@ -8,6 +8,15 @@
   <div class="container company_show">
     <h1>{{$firm->name}}</h1>
 
+    <div class="buttons">
+      <a href="{{route('admin.company.edit', ['company' => $firm->id])}}"><button type="button" class="btn btn-info">Modifica</button></a>
+      <form action="{{route('admin.company.destroy', ['company' => $firm->id])}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger">Elimina</button>
+      </form>
+    </div>
+
     @if ($firm->logo != null)
       <div class="logo">
         <img src="{{asset('storage/' . $firm->logo)}}" alt="Logo">
@@ -30,4 +39,13 @@
     @endif
     <div class="back"><a href="{{route('admin.company.index')}}">Torna indietro</a></div>
   </div>
+
+  @if (session('message'))
+    <div class="alert alert-success" style="position: fixed; bottom: 30px; right: 30px">
+        {{ session('message') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+  @endif
 @endsection

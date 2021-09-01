@@ -10086,10 +10086,21 @@ img {
   height: 70px;
 }
 
+.company_show {
+  position: relative;
+}
 .company_show h1 {
   text-align: center;
   margin-bottom: 30px;
   font-weight: bold;
+}
+.company_show .buttons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.company_show .buttons form {
+  display: inline-block;
 }
 .company_show .logo {
   display: flex;

@@ -26,6 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function () {
     Route::resource('company', 'FirmController');
     Route::get('/dashboard', 'AdminController@dashboard')->name('dashboard');
+    Route::resource('worker', 'WorkerController');
 });
 
 // rotte guest

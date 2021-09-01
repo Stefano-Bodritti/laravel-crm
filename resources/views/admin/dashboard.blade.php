@@ -8,6 +8,6 @@
   <div class="container dashboard">
     <h2>Da qui puoi gestire le aziende e i dipendenti</h2>
     <a href="{{route('admin.company.index')}}"><button type="button" class="btn btn-primary btn-lg btn-block">Aziende</button></a>
-    <button type="button" class="btn btn-primary btn-lg btn-block">Dipendenti</button>
+    <a href="{{route('admin.worker.index')}}"><button type="button" class="btn btn-primary btn-lg btn-block">Dipendenti</button></a>
   </div>
 @endsection
