@@ -29,7 +29,8 @@ class WorkerController extends Controller
      */
     public function create()
     {
-        //
+        $firms = Firm::all();
+        return view('admin.worker.create', compact('firms'));
     }
 
     /**

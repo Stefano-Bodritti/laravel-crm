@@ -36,7 +36,7 @@
         <input type="text" class="form-control" name="partita_iva" id="partita_iva" minlength="11" maxlength="11" placeholder="Inserisci la partita IVA" value="{{$firm->partita_iva}}">
       </div>
 
-      <button type="submit" class="btn btn-primary">Inserisci</button>
+      <button type="submit" class="btn btn-primary">Modifica</button>
     </form>
   </div>
 @endsection

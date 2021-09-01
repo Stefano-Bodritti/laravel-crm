@@ -7,7 +7,7 @@
 @section('content')
   <div class="container workers_index">
     <div class="create">
-      <a href="{{route('admin.company.create')}}"><button type="button" class="btn btn-primary">Aggiungi nuovo dipendente</button></a>
+      <a href="{{route('admin.worker.create')}}"><button type="button" class="btn btn-primary">Aggiungi nuovo dipendente</button></a>
     </div>
     <h1>Lista dipendenti</h1>
     <div class="row title">
