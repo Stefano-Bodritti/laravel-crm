@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Firm;
 use App\Http\Controllers\Controller;
 use App\Worker;
 use Illuminate\Http\Request;
@@ -16,8 +17,9 @@ class WorkerController extends Controller
     public function index()
     {
         $workers = Worker::paginate(10);
+        $firms = Firm::all();
 
-        return view('admin.worker.index', compact('workers'));
+        return view('admin.worker.index', compact('workers', 'firms'));
     }
 
     /**

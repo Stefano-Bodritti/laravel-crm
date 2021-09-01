@@ -10113,3 +10113,30 @@ img {
 .company_show li {
   margin: 5px 0;
 }
+
+.workers_index {
+  position: relative;
+}
+.workers_index h1 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.workers_index .create {
+  position: absolute;
+  right: 0;
+}
+.workers_index .row {
+  border: 1px solid grey;
+  padding: 10px 0;
+}
+.workers_index .row [class^=col] {
+  display: flex;
+  align-items: center;
+}
+.workers_index .row [class^=col] button {
+  margin-right: 5px;
+}
+.workers_index .pagination {
+  margin: 10px 0 0 -8px;
+}

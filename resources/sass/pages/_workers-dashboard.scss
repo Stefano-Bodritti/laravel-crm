@@ -1,0 +1,31 @@
+.workers_index {
+  position: relative;
+  
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  .create {
+    position: absolute;
+    right: 0;
+  }
+
+  .row {
+    border: 1px solid grey;
+    padding: 10px 0;
+    
+    [class^="col"] {
+      display: flex;
+      align-items: center;
+
+      button {
+        margin-right: 5px;
+      }
+    }
+  }
+  .pagination {
+    margin: 10px 0 0 -8px;
+  }
+}

@@ -5,11 +5,11 @@
 @endsection
 
 @section('content')
-  <div class="container company_index">
+  <div class="container workers_index">
     <div class="create">
-      {{-- <a href="{{route('admin.company.create')}}"><button type="button" class="btn btn-primary">Aggiungi nuova azienda</button></a> --}}
+      <a href="{{route('admin.company.create')}}"><button type="button" class="btn btn-primary">Aggiungi nuovo dipendente</button></a>
     </div>
-    <h1>Lista delle aziende</h1>
+    <h1>Lista dipendenti</h1>
     <div class="row title">
       <div class="col-2">Cognome</div>
       <div class="col-2">Nome</div>
@@ -20,15 +20,21 @@
       <div class="row">
         <div class="col-2">{{$worker->name}}</div>
         <div class="col-2">{{$worker->surname}}</div>
-        <div class="col-2">{{$worker->firm_id}}</div>
+        <div class="col-2">
+          @foreach ($firms as $firm)
+          @if ($worker->firm_id == $firm->id)
+            {{$firm->name}} 
+          @endif
+          @endforeach
+        </div>
         <div class="col-4 offset-2">
-          {{-- <a href="{{route('admin.company.show', ['company' => $company->id])}}"><button type="button" class="btn btn-success">Visualizza</button></a>
-          <a href="{{route('admin.company.edit', ['company' => $company->id])}}"><button type="button" class="btn btn-info">Modifica</button></a>
-          <form action="{{route('admin.company.destroy', ['company' => $company->id])}}" method="POST">
+          <a href="{{route('admin.worker.show', ['worker' => $worker->id])}}"><button type="button" class="btn btn-success">Visualizza</button></a>
+          <a href="{{route('admin.worker.edit', ['worker' => $worker->id])}}"><button type="button" class="btn btn-info">Modifica</button></a>
+          <form action="{{route('admin.worker.destroy', ['worker' => $worker->id])}}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">Elimina</button>
-          </form> --}}
+          </form>
 
         </div>
       </div>
