@@ -10126,6 +10126,9 @@ img {
   position: absolute;
   right: 0;
 }
+.workers_index .title {
+  font-weight: bold;
+}
 .workers_index .row {
   border: 1px solid grey;
   padding: 10px 0;

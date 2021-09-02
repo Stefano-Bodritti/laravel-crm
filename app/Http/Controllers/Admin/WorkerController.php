@@ -6,6 +6,7 @@ use App\Firm;
 use App\Http\Controllers\Controller;
 use App\Worker;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class WorkerController extends Controller
 {
@@ -41,7 +42,22 @@ class WorkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validazione dati inseriti
+        $validation = [
+            'name' => 'required|string|max:50',
+            'surname' => 'required|string|max:50',
+            'phone' => 'required|string|max:30|unique:App\Worker,phone', Rule::unique('workers'),
+            'email' => 'required|string|max:50|unique:App\Worker,email', Rule::unique('workers')
+        ];
+        $request->validate($validation);
+
+        // prendo i dati
+        $data = $request->all();
+
+        // salvo
+        $newWorker = Worker::create($data);
+
+        return redirect()->route('admin.worker.index')->with('message', 'Il nuovo dipendente è stato aggiunto correttamente');
     }
 
     /**

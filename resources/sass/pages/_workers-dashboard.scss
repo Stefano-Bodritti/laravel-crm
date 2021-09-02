@@ -12,10 +12,14 @@
     right: 0;
   }
 
+  .title {
+    font-weight: bold;
+  }
+  
   .row {
     border: 1px solid grey;
     padding: 10px 0;
-    
+
     [class^="col"] {
       display: flex;
       align-items: center;
