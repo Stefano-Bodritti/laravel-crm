@@ -21,7 +21,7 @@
       @method('POST')
       <div class="form-group mt-5">
         <label for="name">Nome azienda</label>
-        <input type="text" class="form-control" name="name" id="name" maxlength="50" placeholder="Inserisci il nome">
+        <input type="text" class="form-control" name="name" id="name" maxlength="50" placeholder="Inserisci il nome" value="{{old('name')}}">
       </div>
       <div class="form-group mt-5">
         <label for="logo">Logo azienda</label>
@@ -29,7 +29,7 @@
       </div>
       <div class="form-group mt-5">
         <label for="partita_iva">Partita IVA</label>
-        <input type="text" class="form-control" name="partita_iva" id="partita_iva" minlength="11" maxlength="11" placeholder="Inserisci la partita IVA">
+        <input type="text" class="form-control" name="partita_iva" id="partita_iva" minlength="11" maxlength="11" placeholder="Inserisci la partita IVA" value="{{old('partita_iva')}}">
       </div>
 
       <button type="submit" class="btn btn-primary">Inserisci</button>

@@ -106,6 +106,10 @@ class WorkerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $worker = Worker::where('id', $id)->first();
+
+        $worker->delete();
+
+        return redirect()->route('admin.worker.index')->with('message', 'Il dipendente è stato eliminato');
     }
 }

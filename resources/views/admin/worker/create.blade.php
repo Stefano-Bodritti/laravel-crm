@@ -21,27 +21,27 @@
       @method('POST')
       <div class="form-group mt-5">
         <label for="name">Nome dipendente</label>
-        <input type="text" class="form-control" name="name" id="name" maxlength="50" placeholder="Inserisci il nome">
+        <input type="text" class="form-control" name="name" id="name" maxlength="50" placeholder="Inserisci il nome" value="{{old('name')}}">
       </div>
       <div class="form-group mt-5">
         <label for="surname">Cognome dipendente</label>
-        <input type="text" class="form-control" name="surname" id="surname" maxlength="50" placeholder="Inserisci il cognome">
+        <input type="text" class="form-control" name="surname" id="surname" maxlength="50" placeholder="Inserisci il cognome" value="{{old('surname')}}">
       </div>
       <div class="form-group mt-5">
         <label for="firm_id">Seleziona l'azienda di appartenenza</label>
         <select required class="form-control" name="firm_id" id="firm_id">
           @foreach ($firms as $firm)
-            <option value="{{$firm->id}}">{{$firm->name}}</option>
+            <option value="{{$firm->id}}" {{ $firm->id == old('firm_id') ? 'selected' : '' }}>{{$firm->name}}</option>
           @endforeach
         </select>
       </div>
       <div class="form-group mt-5">
         <label for="phone">Numero di telefono</label>
-        <input type="text" class="form-control" name="phone" id="phone" maxlength="30" placeholder="Inserisci il numero di telefono">
+        <input type="text" class="form-control" name="phone" id="phone" maxlength="30" placeholder="Inserisci il numero di telefono" value="{{old('phone')}}">
       </div>
       <div class="form-group mt-5">
         <label for="email">Email</label>
-        <input type="email" class="form-control" name="email" id="email" maxlength="50" placeholder="Inserisci l'indirizzo email'">
+        <input type="email" class="form-control" name="email" id="email" maxlength="50" placeholder="Inserisci l'indirizzo email'" value="{{old('email')}}">
       </div>
 
       <button type="submit" class="btn btn-primary">Inserisci</button>

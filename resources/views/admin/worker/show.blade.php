@@ -7,14 +7,14 @@
 @section('content')
   <div class="container company_show">
     <h1>{{$worker->surname}} {{$worker->name}}</h1>
-    {{-- <div class="buttons">
-      <a href="{{route('admin.company.edit', ['company' => $firm->id])}}"><button type="button" class="btn btn-info">Modifica</button></a>
-      <form action="{{route('admin.company.destroy', ['company' => $firm->id])}}" method="POST">
+    <div class="buttons">
+      <a href="{{route('admin.worker.edit', ['worker' => $worker->id])}}"><button type="button" class="btn btn-info">Modifica</button></a>
+      <form action="{{route('admin.worker.destroy', ['worker' => $worker->id])}}" method="POST">
         @csrf
         @method('DELETE')
         <button type="submit" class="btn btn-danger">Elimina</button>
       </form>
-    </div> --}}
+    </div>
 
     <h5 class="mb-3">Numero di telefono: {{$worker->phone}}</h5>
     <h5 class="mb-3">Indirizzo e-mail: {{$worker->email}}</h5>

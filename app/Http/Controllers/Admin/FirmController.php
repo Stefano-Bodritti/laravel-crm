@@ -140,6 +140,6 @@ class FirmController extends Controller
 
         // altrimenti, cancella
         $firm->delete();
-        return redirect()->back()->with('message', 'L\'azienda è stata eliminata');
+        return redirect()->route('admin.company.index')->with('message', 'L\'azienda è stata eliminata');
     }
 }

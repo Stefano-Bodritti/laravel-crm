@@ -10060,6 +10060,9 @@ img {
   position: absolute;
   right: 0;
 }
+.company_index .title {
+  font-weight: bold;
+}
 .company_index .row {
   border: 1px solid grey;
   padding: 10px 0;
