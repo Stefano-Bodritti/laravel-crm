@@ -68,7 +68,11 @@ class WorkerController extends Controller
      */
     public function show($id)
     {
-        //
+        $worker = Worker::where('id', $id)->first();
+
+        $firm = Firm::where('id', $worker->firm_id)->first();
+
+        return view('admin.worker.show', compact('worker', 'firm'));
     }
 
     /**
