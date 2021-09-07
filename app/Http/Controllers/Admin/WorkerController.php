@@ -96,9 +96,25 @@ class WorkerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Worker $worker)
     {
-        //
+        // validazione dati inseriti
+        $validation = [
+            'name' => 'required|string|max:50',
+            'surname' => 'required|string|max:50',
+            'phone' => 'required|string|max:30', Rule::unique('workers')->ignore($worker->id),
+            'email' => 'required|string|max:50', Rule::unique('workers')->ignore($worker->id)
+        ];
+
+        $request->validate($validation);
+
+        // prendo i dati
+        $data = $request->all();
+
+        // update
+        $worker->update($data);
+
+        return redirect()->route('admin.worker.index')->with('message', 'Il dipendente è stato modificato');
     }
 
     /**
