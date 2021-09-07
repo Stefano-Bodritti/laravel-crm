@@ -83,7 +83,10 @@ class WorkerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $firms = Firm::all();
+        $worker = Worker::where('id', $id)->first();
+
+        return view('admin.worker.edit', compact('worker', 'firms'));
     }
 
     /**
