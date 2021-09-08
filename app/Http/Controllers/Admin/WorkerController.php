@@ -46,8 +46,8 @@ class WorkerController extends Controller
         $validation = [
             'name' => 'required|string|max:50',
             'surname' => 'required|string|max:50',
-            'phone' => 'required|string|max:30|unique:App\Worker,phone', Rule::unique('workers'),
-            'email' => 'required|string|max:50|unique:App\Worker,email', Rule::unique('workers')
+            'phone' => 'required|string|max:30|unique:App\Worker,phone',
+            'email' => 'required|string|max:50|unique:App\Worker,email',
         ];
         $request->validate($validation);
 
@@ -102,8 +102,8 @@ class WorkerController extends Controller
         $validation = [
             'name' => 'required|string|max:50',
             'surname' => 'required|string|max:50',
-            'phone' => 'required|string|max:30', Rule::unique('workers')->ignore($worker->id),
-            'email' => 'required|string|max:50', Rule::unique('workers')->ignore($worker->id)
+            'phone' => 'required|string|max:30|unique:App\Worker,phone,'.$worker->id,
+            'email' => 'required|string|max:50|unique:App\Worker,email,'.$worker->id
         ];
 
         $request->validate($validation);

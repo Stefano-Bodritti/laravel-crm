@@ -103,9 +103,9 @@ class FirmController extends Controller
 
         // validazione dei dati inseriti
         $validation2 = [
-            'name' => 'required|string|max:50', Rule::unique('firms')->ignore($company->id),
+            'name' => 'required|string|max:50|unique:App\Firm,name,'.$company->id,
             'logo' => 'nullable|mimes:jpeg,png,jpg,gif,svg,bmp|max:2048',
-            'partita_iva' => 'required|numeric|digits:11', Rule::unique('firms')->ignore($company->id)
+            'partita_iva' => 'required|numeric|digits:11|unique:App\Firm,partita_iva,'.$company->id
         ];
         $request->validate($validation2);
 
